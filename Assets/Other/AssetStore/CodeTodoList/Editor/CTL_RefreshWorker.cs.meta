@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8f5e416df417eb24488c179c75f7bfab
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167005
+  packageName: //TODO (Code Todo List)
+  packageVersion: 1.1
+  assetPath: Assets/CodeTodoList/Editor/CTL_RefreshWorker.cs
+  uploadId: 582522

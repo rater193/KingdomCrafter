@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6b44618c5f5346a46b20201d3ccd9f8b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167005
+  packageName: //TODO (Code Todo List)
+  packageVersion: 1.1
+  assetPath: Assets/CodeTodoList/Editor/CTL_TodoObject.cs
+  uploadId: 582522

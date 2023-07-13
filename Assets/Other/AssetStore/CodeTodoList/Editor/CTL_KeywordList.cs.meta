@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0034e31aeee64464bb5dd228c5511cae
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 167005
+  packageName: //TODO (Code Todo List)
+  packageVersion: 1.1
+  assetPath: Assets/CodeTodoList/Editor/CTL_KeywordList.cs
+  uploadId: 582522

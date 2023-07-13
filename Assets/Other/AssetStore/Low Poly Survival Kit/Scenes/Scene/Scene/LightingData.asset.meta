@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d30aa66e325effc42b67cb829e1f5ce9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193143
+  packageName: Low Poly Stylized Survival kit
+  packageVersion: 1.2.1
+  assetPath: Assets/Low Poly Survival Kit/Scenes/Scene/Scene/LightingData.asset
+  uploadId: 430704
