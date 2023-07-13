@@ -80,3 +80,8 @@ Thumbs.db.meta
 
 # VS Code
 *.vscode
+
+# Game CI Cleanup
+# https://game.ci/docs/getting-started/
+/[Aa]rtifacts/
+/[Cc]odeCoverage/
