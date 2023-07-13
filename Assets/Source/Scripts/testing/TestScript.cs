@@ -5,6 +5,7 @@ using ModIO;
 
 public class TestScript : MonoBehaviour
 {
+    //test
     public void ClickCheckInstalledMods()
     {
 
