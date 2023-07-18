@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using UnityEditor.Build;
 using UnityEngine;
 
 namespace CodeTodoList
@@ -149,6 +150,15 @@ namespace CodeTodoList
 			return result;
 		}
 
+#if UNITY_EDITOR
+		protected static NamedBuildTarget GetNameBuildTarget()
+		{
+			BuildTarget buildTarget = EditorUserBuildSettings.activeBuildTarget;
+			BuildTargetGroup targetGroup = BuildPipeline.GetBuildTargetGroup(buildTarget);
+			NamedBuildTarget namedBuildTarget = NamedBuildTarget.FromBuildTargetGroup(targetGroup);
+			return namedBuildTarget;
+		}
+#endif
 
 		public static void AddDefine(string define)
 		{
@@ -165,7 +175,7 @@ namespace CodeTodoList
 			if (definesToAdd == null || definesToAdd.Count == 0)
 				return;
 
-			string _curDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+			string _curDefines = PlayerSettings.GetScriptingDefineSymbols(GetNameBuildTarget());
 			List<string> _definesList = new List<string>(_curDefines.Split(';'));
 
 			foreach (string define in definesToAdd)
@@ -193,7 +203,7 @@ namespace CodeTodoList
 			if (definesToRemove == null || definesToRemove.Count == 0)
 				return;
 
-			string _curDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
+			string _curDefines = PlayerSettings.GetScriptingDefineSymbols(GetNameBuildTarget());
 			List<string> _definesList = new List<string>(_curDefines.Split(';'));
 
 			foreach (var define in definesToRemove)
@@ -208,15 +218,15 @@ namespace CodeTodoList
 		private static void InternalApplyDefine(string define)
 		{
 #if UNITY_EDITOR
-			PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, define);
+			PlayerSettings.SetScriptingDefineSymbols(GetNameBuildTarget(), define);
 #endif
 		}
 
 		public static void RemovePreprocessorDefinition(string toRemove)
 		{
 #if UNITY_EDITOR
-			string _definesString = PlayerSettings.GetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup);
-			string[] _allDefines = _definesString.Split(';');
+			string _curDefines = PlayerSettings.GetScriptingDefineSymbols(GetNameBuildTarget());
+			string[] _allDefines = _curDefines.Split(';');
 			string _newDefine = "";
 			for (int i = 0; i < _allDefines.Length; i++)
 			{
@@ -228,8 +238,7 @@ namespace CodeTodoList
 			}
 			if (_newDefine.EndsWith(";"))
 				_newDefine = _newDefine.Substring(0, _newDefine.Length - 1);
-
-			PlayerSettings.SetScriptingDefineSymbolsForGroup(EditorUserBuildSettings.selectedBuildTargetGroup, _newDefine);
+			PlayerSettings.SetScriptingDefineSymbols(GetNameBuildTarget(), _newDefine);
 #endif
 		}
 
@@ -280,10 +289,11 @@ namespace CodeTodoList
 					if (!dirInfo.Exists)
 						return false;
 				}
-			}catch (Exception ex)
+			}
+			catch (Exception ex)
 			{
-				if(CTL_Settings.DEBUG_MODE)
-				{ 
+				if (CTL_Settings.DEBUG_MODE)
+				{
 					Debug.LogWarning("invalid path : " + relativePath + "  error: " + ex.Message);
 				}
 			}

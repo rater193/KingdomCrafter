@@ -13,6 +13,6 @@ AssetOrigin:
   serializedVersion: 1
   productId: 167005
   packageName: //TODO (Code Todo List)
-  packageVersion: 1.1
-  assetPath: Assets/CodeTodoList/Editor/CTL_PathList.cs
-  uploadId: 582522
+  packageVersion: 1.4
+  assetPath: Assets/Other/AssetStore/CodeTodoList/Editor/CTL_PathList.cs
+  uploadId: 599525

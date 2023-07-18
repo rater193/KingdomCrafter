@@ -6,6 +6,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class CharacterController : MonoBehaviour
 {
+    public static CharacterController Singleton;
+    
     private Camera _camera;
     
     private NavMeshAgent _agent;
@@ -19,12 +21,13 @@ public class CharacterController : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _camera = Camera.main;
         _lastPos = transform.position;
+        Singleton = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Vector3 mousePos = Input.mousePosition;
             Ray ray = _camera.ScreenPointToRay(mousePos);

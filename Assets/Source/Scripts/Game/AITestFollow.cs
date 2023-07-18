@@ -54,6 +54,7 @@ public class AITestFollow : MonoBehaviour
                     {
                         followState = AITestFollowState.FollowTarget;
                         _animator.SetBool("IsWalking", true);
+                        Chatbox.Shout("[Thief] Hey you! Give me your money!", transform.position, followDistance);
                     }
                     else
                     {
